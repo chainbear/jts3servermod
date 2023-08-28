@@ -7,16 +7,14 @@ RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
   rm -R /JTS3ServerMod/JTS3ServerMod-Windows* /JTS3ServerMod/documents/ /JTS3ServerMod/tools/
 
 
-FROM openjdk:11-jre
+FROM cgr.dev/chainguard/jre:latest
 ENV JTS3_SERVER_MOD_VERSION=6.5.7
 
 WORKDIR /JTS3ServerMod
 COPY --from=0 /JTS3ServerMod .
 VOLUME /JTS3ServerMod/config /JTS3ServerMod/plugins /JTS3ServerMod/log
 
-COPY docker-entrypoint.sh .
-ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD ["-mx30M"]
+CMD ["-jar", "JTS3ServerMod.jar", "-log", "log/JTS3ServerMod_InstanceManager.log", "-mx30M"]
 
 ARG VCS_REF
 ARG BUILD_DATE
