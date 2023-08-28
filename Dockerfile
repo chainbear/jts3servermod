@@ -14,7 +14,7 @@ WORKDIR /JTS3ServerMod
 COPY --from=0 /JTS3ServerMod .
 VOLUME /JTS3ServerMod/config /JTS3ServerMod/plugins /JTS3ServerMod/log
 
-CMD ["java", "-jar", "JTS3ServerMod.jar", "-log", "log/JTS3ServerMod_InstanceManager.log", "-mx30M"]
+CMD ["-jar", "JTS3ServerMod.jar", "-log", "log/JTS3ServerMod_InstanceManager.log", "-mx30M"]
 
 ARG VCS_REF
 ARG BUILD_DATE
