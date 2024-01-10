@@ -1,9 +1,9 @@
 FROM alpine:3
 
-ENV JTS3_SERVER_MOD_VERSION=6.5.7
+ENV JTS3_SERVER_MOD_VERSION=6.5.7_3
 RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
   apk add --no-cache libarchive-tools && \
-  wget -qO- "https://www.stefan1200.de/dlrequest.php?file=jts3servermod&type=.zip" | bsdtar -xf- && \
+  wget -qO- "https://www.stefan1200.de/downloads/JTS3ServerMod_${JTS3_SERVER_MOD_VERSION}.zip" | bsdtar -xf- && \
   rm -R /JTS3ServerMod/JTS3ServerMod-Windows* /JTS3ServerMod/documents/ /JTS3ServerMod/tools/
 
 
