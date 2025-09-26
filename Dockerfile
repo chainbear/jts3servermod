@@ -7,7 +7,7 @@ RUN echo "## Downloading ${JTS3_SERVER_MOD_VERSION} ##" && \
   rm -R /JTS3ServerMod/JTS3ServerMod-Windows* /JTS3ServerMod/documents/ /JTS3ServerMod/tools/
 
 
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:25-jre-alpine
 ENV JTS3_SERVER_MOD_VERSION=6.5.7
 
 WORKDIR /JTS3ServerMod
